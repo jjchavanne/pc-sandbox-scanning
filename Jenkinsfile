@@ -49,7 +49,7 @@ pipeline {
                    [ -d ~/.ssh ] || mkdir ~/.ssh && chmod 0700 ~/.ssh
                    ssh-keyscan -t rsa,dsa 10.0.2.103 >> ~/.ssh/known_hosts
                    sshpass -p 'Password.1!!' ssh labuser@10.0.2.103 'bash -s' <<EOF
-                   wget https:cloudlabsdemo99.s3.amazonaws.com/sandbox.sh
+                   wget https://cloudlabsdemo99.s3.amazonaws.com/sandbox.sh
                    echo 'Password.1!!' | sudo -S chmod +x /home/labuser/sandbox.sh
                    echo 'Password.1!!' | sudo -S PCC_CONSOLE_URL=$PCC_CONSOLE_URL token=$token ECR_REPOSITORY=$ECR_REPOSITORY CONTAINER_NAME=$CONTAINER_NAME /home/labuser/sandbox.sh
                    exit
